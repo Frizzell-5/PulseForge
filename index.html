@@ -4,115 +4,208 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>PulseForge Studio</title>
-  <meta name="description" content="PulseForge Studio: a free, open-source music studio that runs anywhere: browser, desktop, tablet and phone.">
+  <meta name="description" content="PulseForge Studio is a free, open-source music studio for every device. Make beats in your browser, or install it on Windows, macOS, Linux, iPhone, iPad and Android.">
   <meta name="theme-color" content="#0d0f17">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css">
+  <meta property="og:title" content="PulseForge Studio">
+  <meta property="og:description" content="Free, open-source music studio for every device.">
+  <meta property="og:image" content="assets/screenshot-desktop.png">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-  <header id="topbar">
-    <div class="brand" title="PulseForge Studio">
-      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#ff5c8a"/><stop offset="1" stop-color="#ffb547"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M4 17h5l3-8 4 15 3-11 2 4h7" fill="none" stroke="#0d0f17" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>PulseForge</span>
+  <nav class="nav">
+    <a class="logo" href="#top"><img src="icons/icon.svg" alt="" width="30" height="30"><span>PulseForge</span></a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="#guide">User guide</a>
+      <a href="#faq">FAQ</a>
     </div>
+    <a class="btn primary small" href="app.html">Launch Studio</a>
+  </nav>
 
-    <div class="menus">
-      <button class="menu-btn" data-menu="file">File</button>
-      <button class="menu-btn" data-menu="view">View</button>
-      <button class="menu-btn" data-menu="tools">Tools</button>
-    </div>
-
-    <div class="transport">
-      <button id="btnPlay" class="tbtn play" title="Play / Stop (Space)" aria-label="Play">▶</button>
-      <button id="btnStop" class="tbtn" title="Stop and rewind" aria-label="Stop">■</button>
-      <button id="btnRec" class="tbtn rec" title="Record notes from keyboard / MIDI (Shift+R)" aria-label="Record">●</button>
-      <button id="btnMetro" class="tbtn small" title="Metronome (Shift+M)" aria-label="Metronome">♩</button>
-      <div class="mode" role="group" aria-label="Playback mode">
-        <button id="modePat" class="on" title="Loop the selected pattern (Shift+L)">PAT</button>
-        <button id="modeSong" title="Play the playlist arrangement (Shift+L)">SONG</button>
+  <header class="hero" id="top">
+    <div class="hero-text">
+      <span class="pill">Free · Open source · No account</span>
+      <h1>Make music <em>anywhere.</em></h1>
+      <p>PulseForge Studio is a full beat-making and music production studio that runs in your browser and installs on every device: Windows, macOS, Linux, ChromeOS, iPhone, iPad and Android.</p>
+      <div class="cta">
+        <a class="btn primary big" href="app.html">▶ Launch in browser</a>
+        <a class="btn big" id="heroDownload" href="#download">⬇ Download</a>
       </div>
-      <label class="field bpm" title="Tempo (drag or type)"><span>BPM</span><input id="bpm" type="number" min="40" max="300" step="1" value="128"></label>
-      <label class="field" title="Swing"><span>SWING</span><input id="swing" type="range" min="0" max="0.6" step="0.01" value="0"></label>
-      <div id="pos" class="lcd" title="Bar : Beat : Step">1:1:1</div>
+      <p class="tiny" id="heroHint">Nothing to sign up for. Your music stays on your device.</p>
     </div>
-
-    <div class="pattern-picker">
-      <button id="patPrev" class="tbtn small" title="Previous pattern">‹</button>
-      <select id="patSelect" aria-label="Current pattern"></select>
-      <button id="patNext" class="tbtn small" title="Next pattern">›</button>
-      <button id="patAdd" class="tbtn small" title="New pattern">＋</button>
-    </div>
-
-    <canvas id="scope" width="160" height="34" title="Master output"></canvas>
-
-    <div class="right">
-      <button id="btnPalette" class="ghost" title="Command palette (Ctrl/⌘ + K)">⌘K</button>
-      <button id="btnGuide" class="ghost" title="User guide (F1)">Guide</button>
-      <button id="btnTheme" class="ghost" title="Toggle light/dark">◐</button>
+    <div class="hero-shot">
+      <img src="assets/screenshot-desktop.png" alt="PulseForge Studio on a computer" class="shot-desktop">
+      <img src="assets/screenshot-mobile.png" alt="PulseForge Studio on a phone" class="shot-mobile">
     </div>
   </header>
 
-  <div id="menuPop" class="popover" hidden></div>
+  <section id="features" class="section">
+    <h2>Everything you need to finish a track</h2>
+    <div class="grid features">
+      <div><b>🥁 Channel Rack</b><p>A step sequencer with paint-drag, per-step velocity, swing and 16–64 step patterns.</p></div>
+      <div><b>🎹 Piano Roll</b><p>Scale lock, chord stamps, a velocity lane, ghost notes, quantize, and draw/select/erase tools.</p></div>
+      <div><b>✨ Idea generators</b><p>One click gives you a fresh drum groove, a melody in your key, or a chord progression.</p></div>
+      <div><b>🎼 Playlist</b><p>Arrange patterns into a full song with paint, move, resize and track mute.</p></div>
+      <div><b>🎚 Mixer + 9 effects</b><p>EQ, compressor, reverb, delay, distortion, filter, chorus, bitcrusher and widener, with meters and a spectrum display.</p></div>
+      <div><b>🔊 Instruments</b><p>Synthesized drums, supersaw, 808, bass, pads, plucks, FM bells, and a sampler for your own sounds.</p></div>
+      <div><b>🎤 Record</b><p>Record your microphone, or play live from your computer keyboard or a MIDI controller.</p></div>
+      <div><b>🪟 Dynamic workspace</b><p>Floating windows that snap and resize, five preset layouts, and full-screen tabs on phones.</p></div>
+      <div><b>💾 Export</b><p>Export WAV and MIDI, save project files, autosave, and undo everything.</p></div>
+    </div>
+  </section>
 
-  <main id="workspace">
-    <section class="win" data-panel="browser" aria-label="Browser">
-      <div class="win-title"><span>Browser</span><kbd>F8</kbd><div class="win-actions"><button data-act="max" title="Maximize">▢</button><button data-act="close" title="Hide">✕</button></div></div>
-      <div class="win-body" id="browser"></div>
-      <div class="win-resize"></div>
-    </section>
+  <section id="download" class="section">
+    <h2>Get PulseForge</h2>
+    <p class="sub" id="detected">Pick your device. We've highlighted the best option for this one.</p>
+    <div class="grid downloads">
+      <article class="dl" data-os="web">
+        <div class="ic">🌐</div><h3>Web browser</h3>
+        <p>Runs instantly in Chrome, Edge, Brave, Firefox or Safari. Nothing to install.</p>
+        <a class="btn primary" href="app.html">Launch in browser</a>
+      </article>
+      <article class="dl" data-os="windows">
+        <div class="ic">🪟</div><h3>Windows</h3>
+        <p>Desktop app for Windows 10 and 11 (64-bit).</p>
+        <a class="btn primary" data-asset="PulseForge-Studio-Windows-Setup.exe">Download .exe</a>
+        <button class="btn install-btn" hidden>Or install from browser</button>
+      </article>
+      <article class="dl" data-os="mac">
+        <div class="ic"></div><h3>macOS</h3>
+        <p>Universal app for Apple Silicon and Intel Macs.</p>
+        <a class="btn primary" data-asset="PulseForge-Studio-macOS.dmg">Download .dmg</a>
+        <button class="btn install-btn" hidden>Or install from browser</button>
+      </article>
+      <article class="dl" data-os="linux">
+        <div class="ic">🐧</div><h3>Linux</h3>
+        <p>AppImage (any distro) or .deb (Ubuntu and Debian).</p>
+        <a class="btn primary" data-asset="PulseForge-Studio-Linux.AppImage">Download AppImage</a>
+        <a class="btn" data-asset="PulseForge-Studio-Linux.deb">Download .deb</a>
+      </article>
+      <article class="dl" data-os="ios">
+        <div class="ic">📱</div><h3>iPhone &amp; iPad</h3>
+        <p>Open this page in <b>Safari</b>, tap <b>Share</b> <span class="kbd">⎋</span>, then <b>Add to Home Screen</b>. It opens full-screen like a native app.</p>
+        <a class="btn" href="#guide-install">Step-by-step</a>
+      </article>
+      <article class="dl" data-os="android">
+        <div class="ic">🤖</div><h3>Android</h3>
+        <p>Install it straight from Chrome. It works offline once installed.</p>
+        <button class="btn primary install-btn">Install app</button>
+        <a class="btn" href="#guide-install">Step-by-step</a>
+      </article>
+      <article class="dl" data-os="chromeos">
+        <div class="ic">💻</div><h3>Chromebook</h3>
+        <p>Install it from Chrome. It gets its own window and launcher icon.</p>
+        <button class="btn primary install-btn">Install app</button>
+      </article>
+      <article class="dl" data-os="source">
+        <div class="ic">🧑‍💻</div><h3>Source code</h3>
+        <p>MIT licensed with no build step. Self-host it anywhere or contribute.</p>
+        <a class="btn" data-repo="">View on GitHub</a>
+      </article>
+    </div>
+    <p class="tiny center" id="installState"></p>
+  </section>
 
-    <section class="win" data-panel="playlist" aria-label="Playlist">
-      <div class="win-title"><span>Playlist — Arrangement</span><kbd>F5</kbd>
-        <div class="win-tools" id="plTools"></div>
-        <div class="win-actions"><button data-act="max" title="Maximize">▢</button><button data-act="close" title="Hide">✕</button></div></div>
-      <div class="win-body canvas-host" id="playlist"></div>
-      <div class="win-resize"></div>
-    </section>
+  <section id="guide" class="section guide">
+    <h2>User guide</h2>
+    <nav class="toc">
+      <a href="#guide-start">Quick start</a><a href="#guide-workspace">Workspace</a><a href="#guide-concepts">How it fits together</a>
+      <a href="#guide-tips">Making a beat</a><a href="#guide-keys">Shortcuts</a><a href="#guide-install">Installing</a><a href="#guide-files">Saving &amp; exporting</a>
+    </nav>
 
-    <section class="win" data-panel="rack" aria-label="Channel rack">
-      <div class="win-title"><span>Channel Rack</span><kbd>F6</kbd>
-        <div class="win-tools" id="rackTools"></div>
-        <div class="win-actions"><button data-act="max" title="Maximize">▢</button><button data-act="close" title="Hide">✕</button></div></div>
-      <div class="win-body" id="rack"></div>
-      <div class="win-resize"></div>
-    </section>
+    <h3 id="guide-start">1 · Quick start (60 seconds)</h3>
+    <ol>
+      <li>Click <a href="app.html"><b>Launch Studio</b></a>. A demo song is already loaded.</li>
+      <li>Press <span class="kbd">Space</span> (or ▶) to play. Click <b>SONG</b> to hear the whole arrangement, or <b>PAT</b> to loop one pattern.</li>
+      <li>In the <b>Channel Rack</b>, click squares to switch drum hits on and off. Drag across them to paint, and right-click to erase.</li>
+      <li>Click a channel's name, then draw notes in the <b>Piano Roll</b>. Out of ideas? Press <b>✨ Melody</b>, <b>✨ Chords</b> or <b>✨ Groove</b>.</li>
+      <li>Paint your patterns into the <b>Playlist</b> to build a full song.</li>
+      <li>Add effects in the <b>Mixer</b>, then use <b>File → Export WAV</b>.</li>
+    </ol>
 
-    <section class="win" data-panel="pianoroll" aria-label="Piano roll">
-      <div class="win-title"><span id="prTitle">Piano Roll</span><kbd>F7</kbd>
-        <div class="win-tools" id="prTools"></div>
-        <div class="win-actions"><button data-act="max" title="Maximize">▢</button><button data-act="close" title="Hide">✕</button></div></div>
-      <div class="win-body canvas-host" id="pianoroll"></div>
-      <div class="win-resize"></div>
-    </section>
+    <h3 id="guide-workspace">2 · The dynamic workspace</h3>
+    <p>Every panel (Browser, Playlist, Channel Rack, Piano Roll and Mixer) is a floating window:</p>
+    <ul>
+      <li><b>Drag</b> a window by its title bar. It <b>snaps</b> to the edges of other windows.</li>
+      <li><b>Resize</b> it from the bottom-right corner. <b>Double-click</b> the title to maximize, and click ✕ to hide.</li>
+      <li>Switch between ready-made layouts in <b>View</b>: Studio, Beat making, Compose, Arrange and Mixing.</li>
+      <li>Toggle panels with <span class="kbd">F5</span>–<span class="kbd">F9</span>. Your layout is remembered.</li>
+      <li>On <b>phones</b>, panels become full-screen tabs along the bottom: Rack, Piano, Song, Mixer and Browse.</li>
+    </ul>
 
-    <section class="win" data-panel="mixer" aria-label="Mixer">
-      <div class="win-title"><span>Mixer</span><kbd>F9</kbd><div class="win-actions"><button data-act="max" title="Maximize">▢</button><button data-act="close" title="Hide">✕</button></div></div>
-      <div class="win-body" id="mixer"></div>
-      <div class="win-resize"></div>
-    </section>
-  </main>
+    <h3 id="guide-concepts">3 · How it all fits together</h3>
+    <div class="concepts">
+      <div><b>Channels</b><p>Your instruments: drums, synths or samples. Double-click one to edit its sound. The number next to it is the mixer track it plays through.</p></div>
+      <div><b>Patterns</b><p>Short clips of notes for all channels. The rack's squares and the piano roll edit the same notes. Switch patterns with the selector at the top.</p></div>
+      <div><b>Playlist</b><p>Where patterns are placed over time to make a song. <b>PAT</b> mode loops one pattern; <b>SONG</b> mode plays the playlist. Click the ruler to play from any bar.</p></div>
+      <div><b>Mixer</b><p>Each track has volume, pan, mute/solo and an effects chain, and everything flows into the Master. Click a track to edit its effects.</p></div>
+    </div>
 
-  <nav id="tabbar" aria-label="Panels">
-    <button data-tab="rack" class="on"><b>▦</b>Rack</button>
-    <button data-tab="pianoroll"><b>♫</b>Piano</button>
-    <button data-tab="playlist"><b>☰</b>Song</button>
-    <button data-tab="mixer"><b>⫼</b>Mixer</button>
-    <button data-tab="browser"><b>✚</b>Browse</button>
-  </nav>
+    <h3 id="guide-tips">4 · Making your first beat</h3>
+    <ol>
+      <li><b>File → New project</b> gives you a kick, snare, hat and synth.</li>
+      <li>Kick on steps 1, 5, 9 and 13; snare on 5 and 13; hats on every other step. Press <b>Space</b>.</li>
+      <li>Select the synth, pick a <b>Scale</b> in the piano roll, turn on <b>🔒 Lock</b>, and draw a bassline. Every note stays in key.</li>
+      <li>Click <b>＋</b> next to the pattern selector to make Pattern 2 for a melody. Try <b>✨ Melody</b>.</li>
+      <li>In the <b>Playlist</b>, select each pattern and paint it onto a track. Press <b>SONG</b>, then ▶.</li>
+      <li>In the <b>Mixer</b>, add <b>Reverb</b> to the melody track and a <b>Compressor</b> to the drums.</li>
+      <li>Scroll the mouse wheel over a lit step to make it quieter or louder. Hats sound more human that way.</li>
+    </ol>
 
-  <div id="modal" class="modal" hidden><div class="modal-card" role="dialog" aria-modal="true"></div></div>
-  <div id="palette" class="modal" hidden>
-    <div class="palette-card"><input id="paletteInput" placeholder="Type a command… (e.g. export, add kick, mixer)" autocomplete="off"><ul id="paletteList"></ul></div>
-  </div>
-  <div id="toast" role="status" aria-live="polite"></div>
-  <input type="file" id="fileOpen" accept=".pfproj,.json" hidden>
-  <input type="file" id="fileSample" accept="audio/*" multiple hidden>
+    <h3 id="guide-keys">5 · Keyboard shortcuts</h3>
+    <table>
+      <tr><td>Space</td><td>Play / stop</td></tr>
+      <tr><td>Shift + L / R / M</td><td>Pattern ↔ Song mode · Record notes · Metronome</td></tr>
+      <tr><td>Ctrl/⌘ + Z · Ctrl/⌘ + Shift + Z</td><td>Undo · Redo</td></tr>
+      <tr><td>Ctrl/⌘ + S · O · E</td><td>Save project · Open project · Export WAV</td></tr>
+      <tr><td>Ctrl/⌘ + K</td><td>Command palette: search every action</td></tr>
+      <tr><td>F1 · F5 · F6 · F7 · F8 · F9</td><td>Guide · Playlist · Channel Rack · Piano Roll · Browser · Mixer</td></tr>
+      <tr><td>Z S X D C V G B H N J M</td><td>Play notes on the selected channel (Q–I row = octave up)</td></tr>
+      <tr><td>[ and ]</td><td>Previous / next pattern</td></tr>
+      <tr><td>Piano roll: Delete · Ctrl+A · Ctrl+D</td><td>Delete · Select all · Duplicate</td></tr>
+      <tr><td>Piano roll: ↑ ↓ (Shift = octave) · ← →</td><td>Transpose · Nudge</td></tr>
+      <tr><td>Ctrl + mouse wheel</td><td>Zoom the piano roll or playlist</td></tr>
+    </table>
 
-  <script type="module" src="js/app.js"></script>
+    <h3 id="guide-install">6 · Installing on each device</h3>
+    <div class="concepts">
+      <div><b>🪟 Windows</b><p>Download the <b>.exe</b> above and run it. If SmartScreen appears, click <b>More info → Run anyway</b> (the app isn't code-signed yet). You can also open the studio in Chrome or Edge and click the install icon ⊕ in the address bar.</p></div>
+      <div><b>⌘ macOS</b><p>Download the <b>.dmg</b>, open it and drag PulseForge into Applications. The first time, <b>right-click the app → Open → Open</b>, because it isn't notarized by Apple yet. Or install from Chrome or Edge with the ⊕ icon.</p></div>
+      <div><b>🐧 Linux</b><p><b>AppImage:</b> run <code>chmod +x PulseForge-Studio-Linux.AppImage</code>, then double-click it. <b>Debian/Ubuntu:</b> <code>sudo apt install ./PulseForge-Studio-Linux.deb</code>.</p></div>
+      <div><b>📱 iPhone / iPad</b><p>Open this page in <b>Safari</b> → tap <b>Share</b> → <b>Add to Home Screen</b> → <b>Add</b>. Launch it from the new icon. Switch off silent mode to hear sound.</p></div>
+      <div><b>🤖 Android</b><p>In <b>Chrome</b>, tap <b>Install app</b> above, or <b>⋮ → Install app</b>. It appears in your app drawer.</p></div>
+      <div><b>💻 Chromebook</b><p>Click <b>Install app</b> above, or the ⊕ icon in Chrome's address bar.</p></div>
+    </div>
+
+    <h3 id="guide-files">7 · Saving, exporting &amp; your data</h3>
+    <ul>
+      <li>Your project <b>autosaves</b> in this browser or app as you work.</li>
+      <li><b>File → Save project file</b> downloads a <code>.pfproj</code> file with your samples inside. Open it on any device with <b>File → Open</b>, or drag it into the window.</li>
+      <li><b>Export WAV</b> renders the song in SONG mode, or the current pattern in PAT mode. <b>Export MIDI</b> sends a pattern to any other music app.</li>
+      <li>Drag audio files anywhere onto the studio to turn them into sampler instruments.</li>
+      <li>There are no accounts, servers or tracking. Your music never leaves your device unless you share it.</li>
+    </ul>
+  </section>
+
+  <section id="faq" class="section">
+    <h2>FAQ</h2>
+    <details><summary>Is it really free?</summary><p>Yes. PulseForge is open source under the MIT license. Every feature is free for everyone, with no trial or upgrade.</p></details>
+    <details><summary>Does it work offline?</summary><p>Yes. Once you've installed it (or opened it once), it works without an internet connection.</p></details>
+    <details><summary>I don't hear any sound.</summary><p>Click anywhere in the studio first, because browsers only allow audio after you interact with the page. On iPhone, switch off silent mode. Also check that the channel and mixer track aren't muted.</p></details>
+    <details><summary>Can I use my MIDI keyboard?</summary><p>Yes, in Chrome, Edge and the desktop app. Plug it in, select a channel and play. Press ● to record while the pattern plays.</p></details>
+    <details><summary>Will my projects move between devices?</summary><p>Use <b>File → Save project file</b> and open that file on the other device. Samples are included in the file.</p></details>
+    <details><summary>Is this affiliated with FL Studio?</summary><p>No. PulseForge is an independent project, not affiliated with Image-Line or FL Studio.</p></details>
+  </section>
+
+  <footer>
+    <img src="icons/icon.svg" alt="" width="24" height="24">
+    <span>PulseForge Studio · MIT License · <a data-repo="">GitHub</a> · <a href="app.html">Launch Studio</a></span>
+  </footer>
+
+  <script src="js/site.js"></script>
 </body>
 </html>

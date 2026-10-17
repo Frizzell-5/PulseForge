@@ -2,7 +2,7 @@
   "name": "PulseForge Studio",
   "short_name": "PulseForge",
   "description": "Free, open-source music studio for every device.",
-  "start_url": "./index.html",
+  "start_url": "./app.html",
   "scope": "./",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],

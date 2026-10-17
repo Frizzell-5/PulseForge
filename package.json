@@ -19,10 +19,68 @@
   "build": {
     "appId": "io.github.pulseforge.studio",
     "productName": "PulseForge Studio",
-    "files": ["index.html", "sw.js", "manifest.webmanifest", "css/**", "js/**", "icons/**", "desktop/**"],
+    "files": [
+      "index.html",
+      "app.html",
+      "sw.js",
+      "manifest.webmanifest",
+      "css/**",
+      "js/**",
+      "icons/**",
+      "desktop/**"
+    ],
     "icon": "icons/icon-512.png",
-    "mac": { "category": "public.app-category.music", "target": ["dmg"] },
-    "win": { "target": ["nsis", "portable"] },
-    "linux": { "target": ["AppImage", "deb"], "category": "Audio" }
-  }
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "artifactName": "PulseForge-Studio-macOS.${ext}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "PulseForge-Studio-Windows-Setup.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Audio",
+      "artifactName": "PulseForge-Studio-Linux.${ext}",
+      "maintainer": "PulseForge Studio contributors"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  },
+  "author": "PulseForge Studio contributors",
+  "homepage": "https://github.com/Frizzell-5/PulseForge"
 }

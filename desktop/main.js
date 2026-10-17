@@ -11,7 +11,7 @@ function serve() {
   return new Promise(resolve => {
     const server = http.createServer((req, res) => {
       const url = decodeURIComponent(req.url.split('?')[0]);
-      const file = path.normalize(path.join(ROOT, url === '/' ? 'index.html' : url));
+      const file = path.normalize(path.join(ROOT, url === '/' ? 'app.html' : url));
       if (!file.startsWith(ROOT) || file.includes(`${path.sep}node_modules${path.sep}`)) { res.writeHead(403); return res.end(); }
       fs.readFile(file, (err, data) => {
         if (err) { res.writeHead(404); return res.end(); }
@@ -34,7 +34,7 @@ async function createWindow() {
   // Allow microphone + MIDI for recording and controllers
   session.defaultSession.setPermissionRequestHandler((_wc, perm, cb) => cb(['media', 'midi', 'midiSysex'].includes(perm)));
   win.webContents.setWindowOpenHandler(({ url }) => { shell.openExternal(url); return { action: 'deny' }; });
-  win.loadURL(`http://127.0.0.1:${port}/index.html`);
+  win.loadURL(`http://127.0.0.1:${port}/app.html`);
 }
 
 app.whenReady().then(createWindow);

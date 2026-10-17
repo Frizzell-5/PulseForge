@@ -56,7 +56,7 @@ kbd { font: 10px var(--mono); color: var(--muted); border: 1px solid var(--line)
 @media (max-width: 1560px) { #scope { width: 110px; } .pattern-picker select { max-width: 130px; } }
 @media (max-width: 1360px) { .brand span, .field:has(#swing) span { display: none; } #scope { display: none; } }
 @media (max-width: 1100px) and (min-width: 821px) { .menus .menu-btn { padding: 5px 6px; } .field input[type=range] { width: 50px; } }
-.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: .3px; font-size: 15px; }
+.brand { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: .3px; font-size: 15px; }
 .brand span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .menus { display: flex; gap: 2px; }
 .menu-btn, .ghost { background: none; border: 1px solid transparent; padding: 5px 10px; border-radius: 8px; color: var(--text); }

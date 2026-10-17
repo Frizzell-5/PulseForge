@@ -6,6 +6,10 @@
 <p align="center"><b>A free, open-source music studio that runs on any device: browser, Windows, macOS, Linux, ChromeOS, iPhone, iPad and Android.</b><br>
 No account, no install required, no paywalled features. Your projects stay on your device.</p>
 
+<p align="center"><img src="assets/screenshot-desktop.png" alt="PulseForge Studio screenshot" width="800"></p>
+
+> **The app has its own user page.** Open the site and you land on the home page (`index.html`): the user guide, download buttons for every device, and a **Launch Studio** button that opens the studio (`app.html`). Everything below is also on that page.
+
 ---
 
 ## 📖 User Guide
@@ -82,7 +86,13 @@ PulseForge is a static web app with **no build step**, so it can run in any of t
 ### 🌐 Option A: Use it in a web browser (no install)
 Open the hosted site (once published, see [Hosting](#-hosting-your-own-copy)). It works in Chrome, Edge, Brave, Firefox and Safari 16+. Chrome and Edge give the best audio performance and MIDI support.
 
-### 💻 Option B: Install as an app on Windows, macOS, Linux or ChromeOS (recommended)
+### ⬇ Option B: Download the desktop app
+Grab the installer for your system from the **Download** section of the user page, or from [Releases](../../releases/latest):
+- **Windows:** `PulseForge-Studio-Windows-Setup.exe`. If SmartScreen appears, click *More info → Run anyway* (the app isn't code-signed yet).
+- **macOS:** `PulseForge-Studio-macOS.dmg` (universal). The first time, right-click the app → *Open* (it isn't notarized yet).
+- **Linux:** `PulseForge-Studio-Linux.AppImage` (run `chmod +x` on it first) or `.deb` (`sudo apt install ./PulseForge-Studio-Linux.deb`).
+
+### 💻 Option B2: Install from the browser on Windows, macOS, Linux or ChromeOS
 1. Open the site in **Chrome**, **Edge** or **Brave**.
 2. Click the **install icon** (⊕) in the address bar, or **⋮ → Cast, save and share → Install PulseForge** (Edge: **… → Apps → Install**).
 3. PulseForge appears in your Start menu / Applications / launcher, opens in its own window and **works offline**.
@@ -113,7 +123,7 @@ git clone https://github.com/<your-username>/PulseForge.git
 cd PulseForge
 npx serve .            # or: python3 -m http.server 3000
 ```
-Then open the printed address (for example `http://localhost:3000`). The app must be served over `http://localhost` or `https://`. Opening `index.html` directly as a file will not work, because browsers block ES modules on `file://`.
+Then open the printed address (for example `http://localhost:3000`) to get the user page, and click **Launch Studio** (or go straight to `/app.html`). The app must be served over `http://localhost` or `https://`. Opening `index.html` directly as a file will not work, because browsers block ES modules on `file://`.
 
 ---
 
@@ -123,6 +133,15 @@ Any static host works: GitHub Pages, Netlify, Vercel, Cloudflare Pages, or your 
 
 **GitHub Pages:** go to the repository's **Settings → Pages → Build and deployment**, set *Source* to **Deploy from a branch**, then choose **main** and **/ (root)**. The site will be live at `https://<your-username>.github.io/PulseForge/`. (On a free GitHub account, Pages needs the repository to be public.)
 
+## 📦 Releasing new desktop builds
+
+Installers are built automatically by GitHub Actions (`.github/workflows/release.yml`) on macOS, Windows and Linux runners. To publish a new version:
+```bash
+npm version patch          # bumps package.json, e.g. 0.1.0 → 0.1.1, and creates a git tag
+git push --follow-tags     # the tag triggers the build; installers are attached to the GitHub Release
+```
+The user page's download buttons always point to the **latest** release, so they update automatically. If you fork the project, change `REPO` at the top of `js/site.js`.
+
 ## 🔒 Privacy
 
 PulseForge has no servers, accounts, analytics or tracking. Projects autosave to your browser's local storage, imported samples are kept in IndexedDB on your device, and `.pfproj` files are saved wherever you choose.
@@ -130,7 +149,9 @@ PulseForge has no servers, accounts, analytics or tracking. Projects autosave to
 ## 🧱 Project structure
 
 ```
-index.html              App shell
+index.html              User page: guide, downloads, install buttons
+app.html                The studio app
+css/site.css, js/site.js  User page styles + download/install logic
 css/style.css           Theme, layout, responsive/mobile styles
 js/app.js               App controller: state, undo, files, keyboard, MIDI, menus
 js/state.js             Project model, presets, demo song

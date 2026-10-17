@@ -514,6 +514,7 @@ class App {
       [`${this.engine.metronome ? '✓' : '  '} Metronome`, () => this.toggleMetro()],
       '-',
       ['User guide', () => this.showGuide(), 'F1'],
+      ['User page & downloads ↗', () => window.open('index.html', '_blank', 'noopener')],
     ];
   }
   openMenu(name, btn) {

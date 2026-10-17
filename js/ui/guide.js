@@ -52,7 +52,7 @@ export function guideContent(app, firstRun) {
         card('📱 iPhone / iPad', 'Open the site in Safari → Share → "Add to Home Screen". It launches full-screen like a native app. Turn off silent mode to hear sound.'),
         card('🤖 Android', 'Open the site in Chrome → ⋮ → "Install app" (or "Add to Home screen").'),
         card('🏠 Self-host / offline', 'Download the code and run npx serve . (or python3 -m http.server), then open http://localhost:3000. Any static web host works.')),
-      h('p', {}, 'Full step-by-step instructions are in the README on GitHub.')),
+      h('p', {}, h('a', { href: 'index.html#download', target: '_blank', rel: 'noopener', style: { color: 'var(--accent2)', fontWeight: '700' } }, 'Open the full user page & downloads →'))),
     ...sec('6 · Tips',
       h('ul', {},
         h('li', {}, 'Scroll the mouse wheel over a lit step to change its velocity. Right-click a step or note to delete it.'),
@@ -61,6 +61,7 @@ export function guideContent(app, firstRun) {
         h('li', {}, 'Ctrl/⌘ + K opens the command palette. Type what you want ("reverb", "export", "new pattern").'),
         h('li', {}, 'Export MIDI to continue a pattern in any other DAW.'))),
     h('div', { class: 'actions' },
+      h('a', { class: 'btn', href: 'index.html', target: '_blank', rel: 'noopener', style: { textDecoration: 'none', color: 'var(--text)' } }, 'User page & downloads'),
       firstRun ? h('label', { style: { marginRight: 'auto', display: 'flex', gap: '6px', alignItems: 'center' } }, dontShow = h('input', { type: 'checkbox', checked: true }), "Don't show on startup") : null,
       h('button', { class: 'btn primary', onclick: () => {
         if (dontShow) try { localStorage.setItem('pf.guideSeen', dontShow.checked ? '1' : ''); } catch {}

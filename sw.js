@@ -1,7 +1,7 @@
 // Offline support: cache the app shell, serve cache-first, refresh in the background.
-const CACHE = 'pulseforge-v1';
+const CACHE = 'pulseforge-v2';
 const ASSETS = [
-  './', './index.html', './css/style.css', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png',
+  './', './index.html', './app.html', './css/style.css', './css/site.css', './js/site.js', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png',
   './js/app.js', './js/state.js',
   './js/audio/engine.js', './js/audio/instruments.js', './js/audio/effects.js', './js/audio/samples.js',
   './js/ui/windows.js', './js/ui/widgets.js', './js/ui/rack.js', './js/ui/pianoroll.js', './js/ui/playlist.js',
