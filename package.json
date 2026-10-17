@@ -1,0 +1,28 @@
+{
+  "name": "pulseforge-studio",
+  "version": "0.1.0",
+  "description": "PulseForge Studio: free, open-source music studio for browser, desktop and mobile.",
+  "main": "desktop/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx --yes serve -l 3000 .",
+    "desktop": "electron .",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.github.pulseforge.studio",
+    "productName": "PulseForge Studio",
+    "files": ["index.html", "sw.js", "manifest.webmanifest", "css/**", "js/**", "icons/**", "desktop/**"],
+    "icon": "icons/icon-512.png",
+    "mac": { "category": "public.app-category.music", "target": ["dmg"] },
+    "win": { "target": ["nsis", "portable"] },
+    "linux": { "target": ["AppImage", "deb"], "category": "Audio" }
+  }
+}
