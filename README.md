@@ -8,6 +8,8 @@ No account, no install required, no paywalled features. Your projects stay on yo
 
 <p align="center"><img src="assets/screenshot-desktop.png" alt="PulseForge Studio screenshot" width="800"></p>
 
+> 🌐 **Live site: https://pulseforge-4gs.pages.dev**
+>
 > **The app has its own user page.** Open the site and you land on the home page (`index.html`): the user guide, download buttons for every device, and a **Launch Studio** button that opens the studio (`app.html`). Everything below is also on that page.
 
 ---
